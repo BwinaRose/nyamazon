@@ -1,4 +1,4 @@
-public abstract class Account {
+public abstract class Account { //account is abstract no test needed
     private Long id;
     private String firstName;
     private String lastName;
@@ -10,5 +10,17 @@ public abstract class Account {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
