@@ -96,6 +96,30 @@ public class VendorTest {
         //checks the item has successfully been removed
     }
 
+    @Test void cancelOrderTest(){
+
+    }
+
+    @Test void addProductToShowcaseTest(){
+
+    }
+
+    @Test void searchProductByCategoryTest(){
+
+    }
+
+    @Test void searchProductByNameTest(){
+
+    }
+
+    @Test void purchaseProductTest(){
+
+    }
+
+    @Test void displayAllOrdersTest(){
+
+    }
+
 
 
 }

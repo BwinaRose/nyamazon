@@ -147,11 +147,5 @@ public class Vendor extends Account {
         Product product1 = new Product("keyboard", ProductCategory.ELECTRONICS,55.00);
         Product product2 = new Product("headphones", ProductCategory.ELECTRONICS, 65.00);
 
-        vendor.addProduct(product1,1);
-        vendor.addProduct(product2, 2);
-        Map<Product, Integer> actual = vendor.getInventory();
-        System.out.println("Inventory: "+actual);
-        vendor.modifyProduct(product1);
     }
-
 }

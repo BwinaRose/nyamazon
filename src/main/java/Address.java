@@ -27,6 +27,22 @@ public class Address {
         return state;
     }
 
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return street +" Unit "+ unit +" "+ city +", "+ state;
