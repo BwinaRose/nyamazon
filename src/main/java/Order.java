@@ -43,6 +43,15 @@ public class Order {
     }
 
     @Override
+    public String toString() {
+        return "Order{" +
+                "product=" + product +
+                ", address=" + address +
+                ", status=" + status +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

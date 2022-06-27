@@ -45,6 +45,6 @@ public class Address {
 
     @Override
     public String toString() {
-        return street +" Unit "+ unit +" "+ city +", "+ state;
+        return " [ " + street +" Unit "+ unit +" "+ city +", "+ state + " ]";
     }
 }
