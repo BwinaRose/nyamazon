@@ -3,6 +3,7 @@ import exceptions.ProductNotFound;
 import org.hamcrest.Matcher;
 import org.hamcrest.collection.IsArrayContaining;
 import org.hamcrest.collection.IsMapContaining;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -104,15 +105,12 @@ public class VendorTest {
         //checks that the item is in the map
     }
 
-//    @Test void modifyProductTest01(){
-//        vendor.addProduct(product1,1);
-//        vendor.addProduct(product2, 2);
-//        Map<Product, Integer> actual = vendor.getInventory();
-//        System.out.println("Inventory: "+actual);
-//        vendor.modifyProduct(product1);
-//        assertThat(actual, not(IsMapContaining.hasKey(product1)));
-//    } this is not a proper test, because
-//    it relies partially on user input.
+    @Test void modifyProductTest01(){
+        Product productExpected = new Product("keyboard with cat key caps",ProductCategory.ELECTRONICS,75.00);
+        Map<Product, Integer> actual = vendor.getInventory();
+        vendor.modifyProduct(product1,"keyboard with cat key caps",ProductCategory.ELECTRONICS,75.00,1);
+        Assertions.assertEquals(productExpected.toString(), product1.toString());
+    }
 
     @Test void removeProductTest01(){
         Map<Product, Integer> actual = vendor.getInventory();
