@@ -1,4 +1,5 @@
 import exceptions.ProductNotAvailableException;
+import exceptions.ProductNotFound;
 
 import java.util.*;
 
@@ -124,13 +125,35 @@ public class Vendor extends Account {
         return inventory.containsKey(product);
     }
 
-//    public List<Product> searchByCategory(ProductCategory category) {
-//        return null;
-//    }
-//
-//    public List<Product> searchByName(String name) {
-//        return null;
-//    }
+    public List<Product> searchByCategory(ProductCategory category) throws ProductNotFound{
+        List<Product> searchOutput = new ArrayList<>();
+        for (Product product : inventory.keySet())
+            if (product.getCategory() == category){
+                searchOutput.add(product);
+            }
+        if(searchOutput == null){
+            throw new ProductNotFound("No items found with that category");
+        }
+        return searchOutput;
+    }
+
+    public List<Product> searchByName(String name) throws ProductNotFound {
+        List<Product> searchOutput = new ArrayList<>();
+        ProductCategory category = null;
+        for (Product product : inventory.keySet())
+            if (product.getName().contains(name)){
+                searchOutput.add(product);
+                category = product.getCategory();
+        }
+        for (Product product : inventory.keySet())
+            if (product.getCategory() == category && !(product.getName().contains(name))){
+                searchOutput.add(product);
+            }
+        if (searchOutput == null){
+            throw new ProductNotFound("No items found by that name");
+        }
+        return searchOutput;
+    }
 
     public Order purchase(Product product, Address address) throws ProductNotAvailableException {
         if (!productInInventory(product)) throw new ProductNotAvailableException("Product not available");
